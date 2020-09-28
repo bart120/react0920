@@ -1,14 +1,21 @@
 import { Button } from '@material-ui/core';
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
 export class HeaderLogin extends Component {
+
+    static propTypes = {
+        ageCapitaine: PropTypes.string.isRequired
+    }
 
     state = {
         user: null//{ name: 'Claude' }
     }
 
     render() {
+        console.log('state:', this.state);
+        console.log('props:', this.props);
         return (
             <>
                 {this.state.user ?

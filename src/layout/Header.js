@@ -5,6 +5,7 @@ import HeaderLogin from '../core/components/authentication/HeaderLogin';
 
 export class Header extends Component {
     render() {
+
         return (
             <AppBar>
                 <Toolbar>
@@ -12,10 +13,10 @@ export class Header extends Component {
                     <Link to="/" className="link">Accueil</Link>
                     <Link to="/rooms/list" className="link">Salles</Link>
                     <Link to="/rooms/add" className="link">Ajouter</Link>
-                    <HeaderLogin></HeaderLogin>
+                    <HeaderLogin ageCapitaine="42"></HeaderLogin>
                 </Toolbar>
             </AppBar>
-        )
+        );
     }
 }
 
