@@ -1,6 +1,7 @@
 import { AppBar, Toolbar } from '@material-ui/core';
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import HeaderLogin from '../core/components/authentication/HeaderLogin';
 
 export class Header extends Component {
     render() {
@@ -11,6 +12,7 @@ export class Header extends Component {
                     <Link to="/" className="link">Accueil</Link>
                     <Link to="/rooms/list" className="link">Salles</Link>
                     <Link to="/rooms/add" className="link">Ajouter</Link>
+                    <HeaderLogin></HeaderLogin>
                 </Toolbar>
             </AppBar>
         )
