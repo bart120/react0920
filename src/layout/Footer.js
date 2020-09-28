@@ -39,10 +39,6 @@ export class Footer extends Component {
         console.log('render');
         return (
             <footer>
-                <div>
-                    <table><tbody><tr><td>test</td></tr></tbody></table>
-                </div>
-
                 &copy; formation ReactJS version {this.state.version}
                 <button onClick={this.onClickMore} >+</button>
             </footer>

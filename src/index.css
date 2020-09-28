@@ -21,3 +21,9 @@ footer{
   width: 100%;
 }
 
+.link{
+  color:#fff;
+  text-decoration: underline;
+  padding: 1em;
+  display: inline-block;
+}
