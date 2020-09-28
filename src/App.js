@@ -12,7 +12,7 @@ class App extends Component {
       <div>
         <Header />
         <Container fixed className="layout-fix">
-
+          <div></div>
         </Container>
         <Footer />
       </div>
