@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 export class HeaderLogin extends Component {
 
     state = {
-        user: null
+        user: null//{ name: 'Claude' }
     }
 
     render() {
         return (
             <>
                 {this.state.user ?
-                    (<>Bonjour ${this.state.user.name} <Button>Se déconnecter</Button></>) :
+                    (<>Bonjour {this.state.user.name} <Button>Se déconnecter</Button></>) :
                     (<Link to="/login" className="link">Se connecter</Link>)
                 }
             </>
