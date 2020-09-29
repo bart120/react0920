@@ -1,0 +1,14 @@
+{
+    "translation": {
+        "header": {
+            "title": "Mon App en formation",
+            "home": "Accueil",
+            "rooms": "les salles",
+            "add": "Ajouter une salle"
+        },
+        "login": {
+            "email": "Email",
+            "password": "Mot de passe"
+        }
+    }
+}

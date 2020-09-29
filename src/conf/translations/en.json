@@ -1,0 +1,14 @@
+{
+    "translation": {
+        "header": {
+            "title": "My App in training",
+            "home": "Home",
+            "rooms": "Rooms",
+            "add": "Add room"
+        },
+        "login": {
+            "email": "Email",
+            "password": "Password"
+        }
+    }
+}

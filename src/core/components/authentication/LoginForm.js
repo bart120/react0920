@@ -2,6 +2,7 @@ import { Button, TextField } from '@material-ui/core'
 import React, { Component } from 'react'
 import InputMail from '../forms/InputMail';
 import { PropTypes } from 'prop-types';
+import { withTranslation } from 'react-i18next';
 
 export class LoginForm extends Component {
 
@@ -39,16 +40,17 @@ export class LoginForm extends Component {
 
     render() {
         //console.log(this.props);
+        const { t } = this.props;
         return (
             <div>
                 <h2>{this.props.title}</h2>
                 <form noValidate onSubmit={this.submit}>
                     <div>
                         {/*<TextField label="Email" type="email" name="email" onChange={this.changeFormField} value={this.state.email} />*/}
-                        <InputMail name="email" label="Votre email" validator onValid={this.changeFormField} />
+                        <InputMail name="email" label={t('login.email')} validator onValid={this.changeFormField} />
                     </div>
                     <div>
-                        <TextField label="Mot de passe" type="password" name="password" onChange={this.changeFormField} value={this.state.password} />
+                        <TextField label={t('login.password')} type="password" name="password" onChange={this.changeFormField} value={this.state.password} />
                     </div>
                     <Button type="submit" variant="contained" color="primary">Se connecter</Button>
                 </form>
@@ -58,4 +60,4 @@ export class LoginForm extends Component {
     }
 }
 
-export default LoginForm;
+export default withTranslation()(LoginForm);

@@ -7,6 +7,8 @@ import Footer from './layout/Footer';
 import Header from './layout/Header';
 import Routes from './router/Routes';
 
+import './conf/translation';
+
 class App extends Component {
 
   render() {
