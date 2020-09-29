@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Footer from './layout/Footer';
 import Header from './layout/Header';
-import RoomAddPage from './pages/rooms/RoomAddPage';
 import Routes from './router/Routes';
 
 class App extends Component {
