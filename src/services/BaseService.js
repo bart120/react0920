@@ -20,6 +20,7 @@ class BaseService {
 
     promiseReject(err) {
         console.warn(err);
+        alert(err.message || err);
         return Promise.reject(err.message || err);
     }
 

@@ -7,7 +7,7 @@ export class AuthenticationPage extends Component {
 
 
     onSubmit = (data) => {
-        console.log('data:', data);
+        //console.log('data:', data);
         //call identity server
     }
 

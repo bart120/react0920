@@ -13,12 +13,30 @@ export class RoomListPage extends Component {
 
     componentDidMount() {
         //this.setState({ rooms: this.servRoom.getRooms() });
+        this.loadRooms();
+    }
+
+    loadRooms() {
         this.servRoom.getRooms().then(data => {
             this.setState({ rooms: data });
         }).catch(err => {
             alert(`Erreur: ${err}`);
         });
     }
+
+    onDelete(room) {
+        this.servRoom.deleteRoom(room.id).then(
+            data => {
+                alert(`La salle ${data.name} est supprimée`);
+                this.loadRooms();
+            }
+        );
+    }
+
+    componentDidCatch(err) {
+        alert(err);
+    }
+
 
     render() {
         return (
@@ -43,7 +61,7 @@ export class RoomListPage extends Component {
                                         <TableCell align="right">{room.seatCount}</TableCell>
                                         <TableCell align="right">
                                             <Link to={{ pathname: `/rooms/detail/${room.id}`, state: { room: room } }}>Détails</Link>
-                                            <Button variant="contained" color="primary">Suppr.</Button>
+                                            <Button variant="contained" color="primary" onClick={() => this.onDelete(room)} >Suppr.</Button>
                                         </TableCell>
                                     </TableRow>
                                 ))}

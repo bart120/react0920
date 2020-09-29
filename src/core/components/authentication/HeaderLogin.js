@@ -14,8 +14,8 @@ export class HeaderLogin extends Component {
     }
 
     render() {
-        console.log('state:', this.state);
-        console.log('props:', this.props);
+        //console.log('state:', this.state);
+        //console.log('props:', this.props);
         return (
             <>
                 {this.state.user ?

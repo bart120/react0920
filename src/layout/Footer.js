@@ -10,22 +10,22 @@ export class Footer extends Component {
 
     constructor() {
         super();
-        console.log("constructeur");
+        //console.log("constructeur");
     }
 
     //comp inséré dans le VDOM
     componentDidMount() {
-        console.log('didmount');
+        //console.log('didmount');
     }
 
     //comp mis à jour dans le VDOM
     componentDidUpdate() {
-        console.log('didupdate');
+        //console.log('didupdate');
     }
 
     //comp supprimé du VDOM
     componentWillUnmount() {
-        console.log('willunmount');
+        //console.log('willunmount');
     }
 
     onClickMore = () => {
@@ -36,7 +36,7 @@ export class Footer extends Component {
 
     //insertion / maj du comp dans le VDOM
     render() {
-        console.log('render');
+        //console.log('render');
         return (
             <footer>
                 &copy; formation ReactJS version {this.state.version}

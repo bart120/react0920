@@ -3,7 +3,6 @@ import BaseService from './BaseService';
 import { URL_ROOMS } from './ConfigUrls';
 
 
-
 class RoomService extends BaseService {
 
     getRooms() {
@@ -33,6 +32,10 @@ class RoomService extends BaseService {
     getRoomById(id) {
         //return this.get(URL_ROOMS + "/" + id);
         return this.get(`${URL_ROOMS}/${id}`);
+    }
+
+    deleteRoom(id) {
+        return this.delete(`${URL_ROOMS}/${id}`);
     }
 }
 
