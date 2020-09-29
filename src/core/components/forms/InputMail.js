@@ -11,7 +11,8 @@ export class InputMail extends Component {
         name: PropTypes.string,
         value: PropTypes.string,
         validator: PropTypes.bool,
-        onValid: PropTypes.func
+        onValid: PropTypes.func,
+        email: PropTypes.string
     }
 
     state = {
