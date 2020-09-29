@@ -1,10 +1,22 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core'
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core'
 import React, { Component } from 'react'
+import RoomService from '../../services/RoomService';
 
 export class RoomListPage extends Component {
 
+    servRoom = new RoomService();
+
     state = {
-        rooms: [{ name: 'toto' }, { name: 'titi' }]
+        rooms: null// [{ name: 'toto', id: 1 }, { name: 'bob', id: 3 }, { name: 'titi', id: 6 }]
+    }
+
+    componentDidMount() {
+        //this.setState({ rooms: this.servRoom.getRooms() });
+        this.servRoom.getRooms().then(data => {
+            this.setState({ rooms: data });
+        }).catch(err => {
+            alert(`Erreur: ${err}`);
+        });
     }
 
     render() {
@@ -21,14 +33,21 @@ export class RoomListPage extends Component {
                                 <TableCell align="right"></TableCell>
                             </TableRow>
                         </TableHead>
-                        <TableBody>
-                            {this.state.rooms.map((room) => (
-                                <TableRow>
-                                    <TableCell>{room.name}</TableCell>
-                                </TableRow>
-                            ))}
+                        {this.state.rooms ? (
+                            <TableBody>
+                                {this.state.rooms.map((room) => (
+                                    <TableRow key={room.id}>
+                                        <TableCell>{room.name}</TableCell>
+                                        <TableCell align="right">{room.price}</TableCell>
+                                        <TableCell align="right">{room.seatCount}</TableCell>
+                                        <TableCell align="right">
+                                            <Button variant="contained" color="primary">Suppr.</Button>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
 
-                        </TableBody>
+                            </TableBody>) :
+                            (<TableBody><TableRow><TableCell colSpan="4">Chargement en cours</TableCell></TableRow></TableBody>)}
                     </Table>
                 </TableContainer>
             </div>
