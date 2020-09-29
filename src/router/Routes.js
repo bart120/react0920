@@ -3,6 +3,7 @@ import React, { Component, Suspense } from 'react'
 import { Route } from 'react-router';
 import HomePage from '../pages/home/HomePage';
 import RoomAddPage from '../pages/rooms/RoomAddPage';
+import RoomDetailPage from '../pages/rooms/RoomDetailPage';
 //import RoomListPage from '../pages/rooms/RoomListPage';
 
 //import AuthenticationPage from '../pages/authentication/AuthenticationPage';
@@ -17,6 +18,7 @@ export class Routes extends Component {
                 <Route path="/" exact component={HomePage} />
                 <Route path="/rooms/list" exact component={listPage} />
                 <Route path="/rooms/add" exact component={RoomAddPage} />
+                <Route path="/rooms/detail/:id" component={RoomDetailPage} />
                 <Route path="/login" exact component={authPage} />
             </Suspense>
         )

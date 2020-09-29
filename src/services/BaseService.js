@@ -10,7 +10,7 @@ class BaseService {
         return axios.post(url, obj).then(this.promiseResolve).catch(this.promiseReject);
     }
 
-    post(url, obj) {
+    put(url, obj) {
         return axios.put(url, obj).then(this.promiseResolve).catch(this.promiseReject);
     }
 

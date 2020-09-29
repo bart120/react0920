@@ -1,5 +1,6 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core'
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import RoomService from '../../services/RoomService';
 
 export class RoomListPage extends Component {
@@ -41,6 +42,7 @@ export class RoomListPage extends Component {
                                         <TableCell align="right">{room.price}</TableCell>
                                         <TableCell align="right">{room.seatCount}</TableCell>
                                         <TableCell align="right">
+                                            <Link to={{ pathname: `/rooms/detail/${room.id}`, state: { room: room } }}>Détails</Link>
                                             <Button variant="contained" color="primary">Suppr.</Button>
                                         </TableCell>
                                     </TableRow>

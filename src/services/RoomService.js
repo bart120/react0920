@@ -1,4 +1,4 @@
-import axios from 'axios';
+//import axios from 'axios';
 import BaseService from './BaseService';
 import { URL_ROOMS } from './ConfigUrls';
 
@@ -8,7 +8,7 @@ class RoomService extends BaseService {
 
     getRooms() {
         return this.get(URL_ROOMS).then(data => {
-            if (data.length > 2) {
+            if (data.length > 10) {
                 return Promise.reject("Trop d'éléments");
             } else {
                 return Promise.resolve(data);
@@ -28,6 +28,11 @@ class RoomService extends BaseService {
         });*/
 
         //return [{ name: 'Salle 1' }, { name: 'Salle 2' }, { name: 'Salle 3' }];
+    }
+
+    getRoomById(id) {
+        //return this.get(URL_ROOMS + "/" + id);
+        return this.get(`${URL_ROOMS}/${id}`);
     }
 }
 
