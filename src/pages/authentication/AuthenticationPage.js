@@ -9,14 +9,20 @@ import { connect } from 'react-redux';
 export class AuthenticationPage extends Component {
 
 
-    onSubmit = (data) => {
+    onSubmit = async (data) => {
         //console.log('data:', data);
         //call identity server
-        this.props.login({ name: data.email });
+        await this.props.login({ name: data.email });
+        if (this.props.history.action === 'REPLACE') {
+            this.props.history.push('' + this.props.history.location.state.from);
+        } else {
+            this.props.history.push('/');
+        }
     }
 
 
     render() {
+        //console.log(this.props);
         //console.log(this.props);
         return (
             <div>
