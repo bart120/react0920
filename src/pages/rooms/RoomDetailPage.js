@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 //import RoomService from '../../services/RoomService';
 
 export class RoomDetailPage extends Component {
@@ -10,11 +11,13 @@ export class RoomDetailPage extends Component {
     //console.log(this.props.match.params.id);
 
     componentDidMount() {
-
-        /* this.props.services.servRoom.getRoomById(this.props.match.params.id).then(data => {
-             this.setState({ room: data });
-         });*/
-        this.setState({ room: this.props.location.state.room });
+        if (this.props.location.state?.room) {
+            this.setState({ room: this.props.location.state.room });
+        } else {
+            this.props.services.servRoom.getRoomById(this.props.match.params.id).then(data => {
+                this.setState({ room: data });
+            });
+        }
     }
 
     render() {
@@ -38,4 +41,4 @@ const mapStateToProps = (store) => {
     return { services: { servRoom: store.services.serviceRoom } };
 }
 
-export default connect(mapStateToProps)(RoomDetailPage)
+export default connect(mapStateToProps)(withRouter(RoomDetailPage))
