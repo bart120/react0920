@@ -34,6 +34,18 @@ class RoomService extends BaseService {
         return this.get(`${URL_ROOMS}/${id}`);
     }
 
+    /**
+     * Ajoute une salle via l'API
+     * @param {room} Salle a ajouter
+     */
+    insertRoom(room) {
+        return this.post(URL_ROOMS, room);
+    }
+
+    /**
+     * fdsfs
+     * @param {number} id id de la salle
+     */
     deleteRoom(id) {
         return this.delete(`${URL_ROOMS}/${id}`);
     }

@@ -4,6 +4,10 @@ import InputMail from '../forms/InputMail';
 import { PropTypes } from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
+/**
+ * @author Vincent
+ * 
+ */
 export class LoginForm extends Component {
 
     static propTypes = {
