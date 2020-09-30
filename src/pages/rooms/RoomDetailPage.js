@@ -35,7 +35,7 @@ export class RoomDetailPage extends Component {
 }
 
 const mapStateToProps = (store) => {
-    return { services: { servRoom: store.serviceRoom } };
+    return { services: { servRoom: store.services.serviceRoom } };
 }
 
 export default connect(mapStateToProps)(RoomDetailPage)

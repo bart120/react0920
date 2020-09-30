@@ -79,7 +79,7 @@ export class RoomListPage extends Component {
 
 const mapStateToProps = (store) => {
     //console.log("store", store);
-    return { services: { servRoom: store.serviceRoom } };
+    return { services: { servRoom: store.services.serviceRoom } };
 }
 
 export default connect(mapStateToProps)(RoomListPage);
