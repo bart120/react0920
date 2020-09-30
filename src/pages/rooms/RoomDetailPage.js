@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
-import RoomService from '../../services/RoomService';
+import { connect } from 'react-redux';
+//import RoomService from '../../services/RoomService';
 
 export class RoomDetailPage extends Component {
 
     state = { room: null };
 
-    servRoom = new RoomService();
+    //servRoom = new RoomService();
     //console.log(this.props.match.params.id);
 
     componentDidMount() {
 
-        /* this.servRoom.getRoomById(this.props.match.params.id).then(data => {
+        /* this.props.services.servRoom.getRoomById(this.props.match.params.id).then(data => {
              this.setState({ room: data });
          });*/
         this.setState({ room: this.props.location.state.room });
@@ -33,4 +34,8 @@ export class RoomDetailPage extends Component {
     }
 }
 
-export default RoomDetailPage
+const mapStateToProps = (store) => {
+    return { services: { servRoom: store.serviceRoom } };
+}
+
+export default connect(mapStateToProps)(RoomDetailPage)

@@ -1,11 +1,12 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core'
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import RoomService from '../../services/RoomService';
+//import RoomService from '../../services/RoomService';
 
 export class RoomListPage extends Component {
 
-    servRoom = new RoomService();
+    //servRoom = new RoomService();
 
     state = {
         rooms: null// [{ name: 'toto', id: 1 }, { name: 'bob', id: 3 }, { name: 'titi', id: 6 }]
@@ -14,10 +15,11 @@ export class RoomListPage extends Component {
     componentDidMount() {
         //this.setState({ rooms: this.servRoom.getRooms() });
         this.loadRooms();
+        //console.log("props", this.props);
     }
 
     loadRooms() {
-        this.servRoom.getRooms().then(data => {
+        this.props.services.servRoom.getRooms().then(data => {
             this.setState({ rooms: data });
         }).catch(err => {
             alert(`Erreur: ${err}`);
@@ -25,7 +27,7 @@ export class RoomListPage extends Component {
     }
 
     onDelete(room) {
-        this.servRoom.deleteRoom(room.id).then(
+        this.props.services.servRoom.deleteRoom(room.id).then(
             data => {
                 alert(`La salle ${data.name} est supprimée`);
                 this.loadRooms();
@@ -75,4 +77,9 @@ export class RoomListPage extends Component {
     }
 }
 
-export default RoomListPage;
+const mapStateToProps = (store) => {
+    //console.log("store", store);
+    return { services: { servRoom: store.serviceRoom } };
+}
+
+export default connect(mapStateToProps)(RoomListPage);

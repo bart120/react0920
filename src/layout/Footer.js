@@ -8,10 +8,6 @@ export class Footer extends Component {
         version: 0
     };
 
-    constructor() {
-        super();
-        //console.log("constructeur");
-    }
 
     //comp inséré dans le VDOM
     componentDidMount() {

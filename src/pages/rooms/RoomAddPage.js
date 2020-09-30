@@ -1,11 +1,12 @@
 import { Button, FormControl, InputLabel, MenuItem, Select, Snackbar, TextField } from '@material-ui/core'
 import { Alert } from '@material-ui/lab';
 import React, { Component } from 'react'
-import RoomService from '../../services/RoomService';
+import { connect } from 'react-redux';
+//import RoomService from '../../services/RoomService';
 
 export class RoomAddPage extends Component {
 
-    servRoom = new RoomService();
+    //servRoom = new RoomService();
 
     state = {
         room: {},
@@ -27,7 +28,7 @@ export class RoomAddPage extends Component {
     submit = (ev) => {
         ev.preventDefault();
 
-        this.servRoom.insertRoom(this.state.room).then(
+        this.props.services.servRoom.insertRoom(this.state.room).then(
             data => {
                 console.log(this.state);
                 this.setState({ message: 'La salle est ajoutée.' });
@@ -91,4 +92,9 @@ export class RoomAddPage extends Component {
     }
 }
 
-export default RoomAddPage;
+const mapStateToProps = (store) => {
+    //console.log("store", store);
+    return { services: { servRoom: store.serviceRoom } };
+}
+
+export default connect(mapStateToProps)(RoomAddPage);

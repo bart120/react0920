@@ -6,7 +6,7 @@ import HeaderLogin from '../core/components/authentication/HeaderLogin';
 
 class Header extends Component {
     render() {
-        console.log('props: ', this.props);
+        //console.log('props: ', this.props);
         const { t } = this.props;
 
         return (
